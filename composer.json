@@ -1,0 +1,37 @@
+{
+    "name": "marekzak/gitlab-user-api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Marek Žák",
+            "email": "marek@zakmarek.cz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "slim/slim": "^4.9",
+        "slim/psr7": "^1.5",
+        "nette/di": "^3.0",
+        "nette/neon": "^3.3",
+        "nette/caching": "^3.1",
+        "nette/finder": "^2.5",
+        "nette/schema": "^1.2",
+        "guzzlehttp/guzzle": "^7.4",
+        "tracy/tracy": "^2.9",
+        "nette/utils": "^3.2"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.2",
+        "squizlabs/php_codesniffer": "^3.6"
+    },
+    "scripts": {
+        "stan": "vendor/bin/phpstan analyse bin src index.php --level 7",
+        "phpcs": "phpcs --standard=PSR12 bin src index.php",
+        "phpcbf": "phpcbf --standard=PSR12 bin src index.php"
+    }
+}

@@ -1,0 +1,29 @@
+parameters:
+    api:
+        baseUri: 'https://gitlab.com/'
+        topLevelId: 10975505
+        accessToken: naRAbrD8qPXaXVASQ8Zy
+
+services:
+    cache.storage: Nette\Caching\Storages\FileStorage('temp/cache')
+    routesBuilder: App\Routes\RoutesBuilder
+
+    - App\Gitlab\GitlabExporter
+    -
+        class: App\Gitlab\GitlabDataCrawler
+        arguments:
+            baseUri: %api.baseUri%
+            topLevelId: %api.topLevelId%
+            accessToken: %api.accessToken%
+
+search:
+    controllers:
+        in: ./src/Controllers
+    fileObjects:
+        in: ./src/FileObjects
+    gitlab:
+        in: ./src/Gitlab
+
+
+
+
